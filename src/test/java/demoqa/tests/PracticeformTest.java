@@ -29,14 +29,14 @@ public class PracticeformTest {
         $("#firstName").setValue("Alex");
         $("#lastName").setValue("Egorov");
         $("#userEmail").setValue("Alex@egorov.com");
-        $(".custom-control-label").click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("8888888888");
 
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").click();
-        $(byText("September")).click();
-        $(".react-datepicker__year-select").click();
-        $(byText("1995")).click();
+        $("#dateOfBirth-wrapper").$("#dateOfBirthInput").click();
+        $("#dateOfBirth-wrapper").$(".react-datepicker__month-select").click();
+        $("#dateOfBirth-wrapper").$(byText("September")).click();
+        $("#dateOfBirth-wrapper").$(".react-datepicker__year-select").click();
+        $("#dateOfBirth-wrapper").$(byText("1995")).click();
         $(".react-datepicker__day--022").click();
 
         $("#subjectsInput").setValue("E");
@@ -44,17 +44,22 @@ public class PracticeformTest {
         $("#subjectsInput").setValue("H");
         $(byText("History")).click();
 
-        $(byText("Sports")).click();
-        $(byText("Reading")).click();
-        $(byText("Music")).click();
+
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
+        $("#hobbiesWrapper").$(byText("Music")).click();
 
         $("#uploadPicture").uploadFile(new File("src/test/resources/new.png"));
+
         $("#currentAddress").setValue("Moscow");
+
         $("#state").click();
-        $(byText("NCR")).click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
         $("#city").click();
-        $(byText("Delhi")).click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
+
+
 
         $(byText("Thanks for submitting the form")).shouldBe(Condition.visible);
         $(byText("Alex Egorov")).shouldBe(Condition.visible);
