@@ -39,9 +39,9 @@ public class PracticeformTest {
         $(".react-datepicker__day--022").click();
 
         $("#subjectsInput").setValue("E");
-        $(byText("English")).click();
+        $("#subjectsWrapper").$(byText("English")).click();
         $("#subjectsInput").setValue("H");
-        $(byText("History")).click();
+        $("#subjectsWrapper").$(byText("History")).click();
 
 
         $("#hobbiesWrapper").$(byText("Sports")).click();
