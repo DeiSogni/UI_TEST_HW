@@ -18,7 +18,7 @@ public class RegistrationPage {
                 lastNameInput = $("#lastName"),
                 userEmailInput = $("#userEmail"),
                 genderWrapper = $("#genterWrapper"),
-                userNumberImput = $("#userNumber"),
+                userNumberInput = $("#userNumber"),
                 birthDayInput = $("#dateOfBirthInput"),
                 subjectsInput = $("#subjectsInput"),
                 hobbiesInput = $("#hobbiesWrapper"),
@@ -32,18 +32,11 @@ public class RegistrationPage {
 
         public RegistrationPage openPage() {
                 open("/automation-practice-form");
-                executeJavaScript("$('#fixedban').remove()");
-                executeJavaScript("$('footer').remove()");
                 $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-
+                closeBanners();
                 return this;
         }
 
-        public RegistrationPage resultTable() {
-
-
-                return this;
-        }
 
         public RegistrationPage setFirstName(String value) {
                 firstNameInput.setValue(value);
@@ -67,7 +60,7 @@ public class RegistrationPage {
         }
 
         public RegistrationPage setUserNumber(String value) {
-                userNumberImput.setValue(value);
+                userNumberInput.setValue(value);
                 return this;
         }
 
@@ -125,5 +118,9 @@ public class RegistrationPage {
         public RegistrationPage closeModal() {
                 closeButton.click();
                 return this;
+        }
+        private void closeBanners() {
+                executeJavaScript("$('#fixedban').remove()");
+                executeJavaScript("$('footer').remove()");
         }
 }
