@@ -3,13 +3,13 @@ package demoqa.pages;
 import com.codeborne.selenide.SelenideElement;
 import demoqa.pages.components.CalendarComponent;
 import demoqa.pages.components.ResultsTableComponent;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
+
 
         CalendarComponent calendarComponent = new CalendarComponent();
         ResultsTableComponent resultsTableComponent = new ResultsTableComponent();

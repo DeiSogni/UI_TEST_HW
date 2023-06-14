@@ -6,42 +6,40 @@ import org.junit.jupiter.api.Test;
 
 public class PracticeformTest extends TestBase{
 
-    RegistrationPage registrationPage = new RegistrationPage();
-
     @Test
     void uiTest() {
 
+
+
         registrationPage.openPage()
 
-        .setFirstName("Alex")
-        .setLastName("Egorov")
-        .setUserEmail("Alex@egorov.com")
-        .setGender("Male")
-        .setUserNumber("8888888888")
-        .setBirthDay("30", "July", "2008")
-        .setSubjects("English")
-        .setSubjects("History")
-        .setHobbies("Sports")
-        .setHobbies("Reading")
-        .setHobbies("Music")
-        .uploadPicture("new.png")
-        .setCurrentAddress("Moscow")
-        .setState("NCR")
-        .setCity("Delhi")
+        .setFirstName(dataRandoms.firstName)
+        .setLastName(dataRandoms.lastName)
+        .setUserEmail(dataRandoms.userEmail)
+        .setGender(dataRandoms.gender)
+        .setUserNumber(dataRandoms.phoneNumber)
+        .setBirthDay(dataRandoms.birthDay, dataRandoms.mountBirth, dataRandoms.yearBirth)
+        .setSubjects(dataRandoms.subject)
+        .setHobbies(dataRandoms.hobby)
+        .uploadPicture(dataRandoms.imagePng)
+        .setCurrentAddress(dataRandoms.address)
+        .setState(dataRandoms.state)
+        .setCity(dataRandoms.city)
         .submit();
 
         registrationPage.checkResponse()
 
-        .checkResult("Student Name","Alex Egorov")
-        .checkResult("Student Email","Alex@egorov.com")
-        .checkResult("Gender","Male")
-        .checkResult("Mobile","8888888888")
-        .checkResult("Date of Birth","30 July,2008")
-        .checkResult("Subjects","English, History")
-        .checkResult("Hobbies","Sports, Reading, Music")
-        .checkResult("Picture","new.png")
-        .checkResult("Address","Moscow")
-        .checkResult("State and City","NCR Delhi");
+        .checkResult("Student Name", dataRandoms.firstName + " " + dataRandoms.lastName)
+        .checkResult("Student Email", dataRandoms.userEmail)
+        .checkResult("Gender", dataRandoms.gender)
+        .checkResult("Mobile", dataRandoms.phoneNumber)
+        .checkResult("Date of Birth", dataRandoms.birthDay + " " + dataRandoms.mountBirth +
+                "," + dataRandoms.yearBirth)
+        .checkResult("Subjects", dataRandoms.subject)
+        .checkResult("Hobbies", dataRandoms.hobby)
+        .checkResult("Picture", dataRandoms.imagePng)
+        .checkResult("Address", dataRandoms.address)
+        .checkResult("State and City", dataRandoms.state + " " + dataRandoms.city);
 
         registrationPage.closeModal();
 
