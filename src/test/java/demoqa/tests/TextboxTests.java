@@ -18,13 +18,13 @@ public class TextboxTests extends TestBase {
 
     @Test
     void successTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
+
         step("Открываем страницу", () -> {
                 TextboxPage.openPage();
         });
 
 
-        TextboxPage  //.openPage()
+        TextboxPage
                    .setUserName("Alex Egorov")
                    .setUserEmail("Alex@Egorov.com")
                    .setCurrentAddress("Some address 1")
