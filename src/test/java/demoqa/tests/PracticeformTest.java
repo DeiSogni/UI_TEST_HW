@@ -1,16 +1,11 @@
 package demoqa.tests;
 
-import demoqa.pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
-
 
 public class PracticeformTest extends TestBase{
 
     @Test
     void uiTest() {
-
-
-
         registrationPage.openPage()
 
         .setFirstName(dataRandoms.firstName)

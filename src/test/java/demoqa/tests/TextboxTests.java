@@ -1,8 +1,11 @@
 package demoqa.tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import demoqa.pages.TexboxPage;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
+import static io.qameta.allure.Allure.step;
 
 public class TextboxTests extends TestBase {
 
@@ -13,10 +16,15 @@ public class TextboxTests extends TestBase {
            currentAddress = "Some address 1",
            permanentAddress = "Another address 1";
 
-
     @Test
     void successTest() {
-        TextboxPage.openPage()
+        SelenideLogger.addListener("allure", new AllureSelenide());
+        step("Открываем страницу", () -> {
+                TextboxPage.openPage();
+        });
+
+
+        TextboxPage  //.openPage()
                    .setUserName("Alex Egorov")
                    .setUserEmail("Alex@Egorov.com")
                    .setCurrentAddress("Some address 1")
@@ -29,4 +37,5 @@ public class TextboxTests extends TestBase {
 
 
     }
+
 }
