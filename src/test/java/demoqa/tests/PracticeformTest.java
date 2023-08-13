@@ -1,7 +1,9 @@
 package demoqa.tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Tag("remote")
 public class PracticeformTest extends TestBase{
 
     @Test
