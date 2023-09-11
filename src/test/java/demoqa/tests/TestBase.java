@@ -21,13 +21,12 @@ public class TestBase {
     DataRandoms dataRandoms = new DataRandoms();
     @BeforeAll
     static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "99.0");
+        Configuration.browserSize = System.getProperty("browserSize", "1980х1080");
+        Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com/");
+        Configuration.remote = System.getProperty("remoteDriverUrl","https://user1:1234@selenoid.autotests.cloud/wd/hub/");
         Configuration.pageLoadStrategy = "eager";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.savePageSource = false;
-        Configuration.screenshots = false;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", new HashMap<String, Object>() {{

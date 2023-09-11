@@ -3,6 +3,7 @@ package demoqa.tests;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import demoqa.pages.TexboxPage;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -17,6 +18,7 @@ public class TextboxTests extends TestBase {
            permanentAddress = "Another address 1";
 
     @Test
+    @Tag("ui")
     void successTest() {
 
         step("Открываем страницу", () -> {
